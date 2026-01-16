@@ -219,7 +219,7 @@ const CompanionForm = () => {
         </CardContent>
 
         <CardFooter className="pt-2">
-          <Button type="submit" className="w-full cursor-pointer">
+          <Button type="submit" className="w-full cursor-pointer tracking-wide" variant="secondary">
             Build Your Companion
           </Button>
         </CardFooter>
