@@ -111,9 +111,9 @@ const CompanionForm = () => {
                     >
                       <SelectValue placeholder="Select the subject" />
                     </SelectTrigger>
-                    <SelectContent>
+                    <SelectContent className="select-content">
                       {subjects.map((subject) => (
-                        <SelectItem key={subject} value={subject} className="capitalize">
+                        <SelectItem key={subject} value={subject} className="selected-item2 ">
                           {subject}
                         </SelectItem>
                       ))}
@@ -157,9 +157,9 @@ const CompanionForm = () => {
                     >
                       <SelectValue placeholder="Select the voice type" />
                     </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="male">Male</SelectItem>
-                      <SelectItem value="female">Female</SelectItem>
+                    <SelectContent className="select-content">
+                      <SelectItem  className="selected-item2 " value="male">Male</SelectItem>
+                      <SelectItem className="selected-item2 "  value="female">Female</SelectItem>
                     </SelectContent>
                   </Select>
                   {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
@@ -183,9 +183,9 @@ const CompanionForm = () => {
                     >
                       <SelectValue placeholder="Select the speaking style" />
                     </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="formal">Formal</SelectItem>
-                      <SelectItem value="casual">Casual</SelectItem>
+                    <SelectContent className="select-content">
+                      <SelectItem className="selected-item2" value="formal">Formal</SelectItem>
+                      <SelectItem className="selected-item2" value="casual">Casual</SelectItem>
                     </SelectContent>
                   </Select>
                   {fieldState.invalid && <FieldError errors={[fieldState.error]} />}

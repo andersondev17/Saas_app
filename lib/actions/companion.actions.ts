@@ -53,3 +53,51 @@ export const getCompanion = async (id: string) => {
     
     return data;
 }
+export const addToSessionHistory = async (companionId: string) => {
+    const { userId } = await auth();
+    const supabase = createSupabaseClient(); //instace of supabase
+
+    const { data, error } = await supabase    //fetch from current DB history 
+        .from('session_history')
+        .insert({
+            companion_id: companionId,
+            user_id: userId,
+        })
+
+    if (error) throw new Error(error.message)
+    return data;
+}
+
+/*
+    Method for getting all recent session for each specific id
+*/
+export const getRecentSessions = async (limit = 10) => {
+    const supabase = createSupabaseClient();
+    const { data, error } = await supabase
+        .from('session_history')
+        .select('companions:companion_id(*)') //companions with specific companion id
+        .order('created_at', { ascending: false }) // descending from newest to oldest
+        .limit(limit)
+
+    if (error) throw new Error(error.message)
+
+    return data.map(({ companions }) => companions);
+}
+
+
+/*
+    Method for getting all recent session for each specific user
+*/
+export const getUserSessions = async (userId: string, limit = 10) => {
+    const supabase = createSupabaseClient();
+    const { data, error } = await supabase
+        .from('session_history')
+        .select('companions:companion_id(*)') //companions with specific companion id
+        .eq('user_id', userId)
+        .order('created_at', { ascending: false }) // descending from newest to oldest
+        .limit(limit)
+
+    if (error) throw new Error(error.message)
+
+    return data.map(({ companions }) => companions);
+}

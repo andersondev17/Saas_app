@@ -191,6 +191,16 @@ body {
     @apply size-[300px] max-sm:size-[120px];
   }
 
+  .select-content {
+    @apply bg-white border border-neutral-800/20 shadow-xl rounded-xl p-1
+  }
+  .select-item {
+    @apply  rounded-lg px-3 py-2.5 text-sm cursor-pointer hover:bg-neutral-100 
+            data-[state=checked]:bg-neutral-900 data-[state=checked]:text-white
+  }
+  .selected-item2 {
+    @apply  capitalize rounded-lg px-3 py-2.5 text-sm cursor-pointer hover:bg-neutral-100 data-[state=checked]:bg-neutral-900 data-[state=checked]:text-white
+  }
   .user-section {
     @apply flex flex-col gap-4 w-1/3 max-sm:w-full max-sm:flex-row max-sm:gap-3;
   }
