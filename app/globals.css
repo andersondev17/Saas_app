@@ -125,11 +125,18 @@ body {
     @apply flex gap-6 justify-between items-start w-full max-lg:flex-col-reverse max-lg:items-center;
   }
   .companions-grid {
-    @apply flex flex-col md:flex-row gap-6 w-full max-md:justify-center;
-  }
+    @apply 
+    grid 
+    grid-cols-1 
+    gap-6 
+    w-full
+    sm:grid-cols-3
+    lg:grid-cols-4
+}
+
   .companion-card {
   @apply flex flex-col rounded-2xl border border-neutral-800/10 bg-white px-5 py-5 gap-5 w-full 
-         min-lg:max-w-[410px] justify-between transition-all duration-300
+         min-lg:max-w-full justify-between transition-all duration-300
          hover:shadow-lg hover:border-neutral-800/20 hover:-translate-y-1;
 }
   .subject-badge {

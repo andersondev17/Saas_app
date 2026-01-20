@@ -4,7 +4,7 @@ import Link from "next/link";
 const CreateCompanionCard = () => {
     return (
         <Link href="/companions/new" className="block group build-button">
-            <article className="build-companion-card rounded-2xl bg-gradient-to-br from-neutral-900 to-neutral-800 border-2 border-dashed border-neutral-700 hover:border-neutral-600 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 relative overflow-hidden">
+            <article className="build-companion-card rounded-2xl  bg-gradient-to-br from-neutral-900 to-neutral-800 border-2 border-dashed border-neutral-700 hover:border-neutral-600 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 relative overflow-hidden">
                 {/* Subtle grid pattern */}
                 <div className="absolute inset-0 opacity-5">
                     <svg width="100%" height="100%">
@@ -29,8 +29,11 @@ const CreateCompanionCard = () => {
 
                     {/* Text */}
                     <div className="flex flex-col gap-2">
-                        <h2 className="hidden sm:block text-2xl font-bold text-white">
-                            New Companion
+                        <h2 className="hidden sm:block  text-2xl font-bold text-white">
+                            New 
+                            <span className="ml-2  sm:hidden md:hidden lg:block">
+                              Companion
+                            </span>
                         </h2>
                     </div>
                 </div>
