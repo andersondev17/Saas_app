@@ -1,5 +1,4 @@
 import Navbar from "@/components/Navbar";
-import { DotPattern } from "@/components/ui/dot-pattern";
 import { ClerkProvider } from "@clerk/nextjs";
 import type { Metadata } from "next";
 import { Bricolage_Grotesque } from "next/font/google";
@@ -21,21 +20,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider appearance={{ variables: { colorPrimary: '#fe5933' } }}>
-      <html lang="en">
-        <body className={`${bricolage.variable} antialiased`}>
-          <DotPattern
-            className="absolute inset-0 opacity-40"
-            width={20}
-            height={20}
-            cx={1}
-            cy={1}
-            cr={1}
-          />
+    <html lang="en">
+      <body className={`${bricolage.variable} antialiased relative min-h-screen w-screen h-screen overflow-y-auto`}>
+        <ClerkProvider appearance={{ variables: { colorPrimary: '#fe5933' } }}>
           <Navbar />
           {children}
-        </body>
-      </html>
-    </ClerkProvider>
+         
+        </ClerkProvider>
+      </body>
+    </html>
   );
 }
