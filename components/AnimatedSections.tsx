@@ -40,7 +40,7 @@ export default function AnimatedSections({ children }: AnimatedSectionsProps) {
                     start: "top top",
                     end: () => "+=" + panel.offsetHeight,
                     pin: true,
-                    pinSpacing: true,
+                    pinSpacing: false,
                 })
             })
         })
