@@ -1,3 +1,5 @@
+import { Bot, GraduationCap, Sparkles, TrendingUp, Users } from "lucide-react";
+
 export const subjects = [
   "maths",
   "language",
@@ -71,3 +73,12 @@ export const recentSessions = [
     color: "#C8FFDF",
   },
 ];
+
+
+export const metrics = [
+  { icon: Bot, value: "AI-first", color: subjectsColors.coding },
+  { icon: Sparkles, value: "Adaptive", color: subjectsColors.language },
+  { icon: GraduationCap, value: "Curriculum-based", color: subjectsColors.history },
+  { icon: TrendingUp, value: "Goal-driven", color: subjectsColors.maths },
+  { icon: Users, value: "Built with educators", color: subjectsColors.science },
+]

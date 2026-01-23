@@ -2,6 +2,7 @@ import AnimatedSections from '@/components/AnimatedSections'
 import CompanionCard from '@/components/CompanionCard'
 import CompanionsList from '@/components/CompanionsList'
 import CTA from '@/components/CTA'
+import HeroSection from '@/components/HeroSection'
 import { getAllCompanions, getRecentSessions } from '@/lib/actions/companion.actions'
 import { getSubjectColor } from '@/lib/utils'
 
@@ -12,7 +13,7 @@ const Page = async () => {
   return (
     <main className="home-animated">
       <AnimatedSections>
-       
+        <HeroSection />
         {/* Panel 1 */}
         <section className="w-full h-screen flex flex-col justify-center px-10 max-sm:px-6 bg-gradient-to-br from-emerald-100 to-white">
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 pb-2 ">

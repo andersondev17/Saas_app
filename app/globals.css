@@ -9,7 +9,11 @@
   --primary: oklch(0.5984 0.199 286.41); 
   --background: oklch(0.99 0 0); 
   --foreground: oklch(0.145 0 0);
+   --accent: oklch(0.77 0.14 195);       
+  --accent-strong: oklch(0.62 0.18 195);
   
+  --muted: oklch(0.96 0 0);
+  --muted-foreground: oklch(0.45 0 0);
   /* Improved subject colors */
   --science: #D4BDFC;
   --maths: #FFC94A;
@@ -76,6 +80,8 @@ body {
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.205 0 0);
   --card-foreground: oklch(0.985 0 0);
+  --accent: oklch(0.72 0.16 195);
+  --accent-strong: oklch(0.82 0.14 195);
   --popover: oklch(0.205 0 0);
   --popover-foreground: oklch(0.985 0 0);
   --primary: oklch(0.922 0 0);
@@ -223,6 +229,7 @@ body {
            active:scale-98 disabled:opacity-50 disabled:cursor-not-allowed;
   }
 
+  
   /* CTA Button Enhanced */
   .btn-session {
     @apply rounded-2xl py-4 cursor-pointer transition-all w-full text-white font-semibold
