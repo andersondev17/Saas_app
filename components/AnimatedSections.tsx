@@ -48,8 +48,8 @@ export default function AnimatedSections({ children }: AnimatedSectionsProps) {
         const pageScrollTrigger = ScrollTrigger.create({
             snap: {
                 snapTo: 1 / panels.length,
-                duration: 200,
-                ease: 'power1.inOut',
+                duration: 20,
+                ease: 'expo.inOut',
             },
         })
 

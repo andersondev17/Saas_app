@@ -1,5 +1,5 @@
+import CardSlider from "@/components/CardSlider";
 import CompanionCard from "@/components/CompanionCard";
-import CreateCompanionCard from "@/components/CreateCompanionCard";
 import SearchInput from "@/components/SearchInput";
 import SubjectFilter from "@/components/SubjectFilter";
 import { getAllCompanions } from "@/lib/actions/companion.actions";
@@ -15,8 +15,8 @@ const Companion = async ({ searchParams }: SearchParams) => {
   const hasFilters = Boolean(subject || topic);
 
   return (
-    <main>
-      <section className="flex justify-between gap-4 max-sm:flex-col">
+    <main className="min-h-screen">
+      <section className="flex justify-between gap-4 max-sm:flex-col px-6 py-4 sticky top-16 bg-background z-10 border-b">
         <h1>Companions</h1>
         <div className="flex gap-4">
           <SearchInput />
@@ -33,19 +33,39 @@ const Companion = async ({ searchParams }: SearchParams) => {
       )}
 
       {hasResults && (
-        <section className="companions-grid">
-          {!hasFilters && <CreateCompanionCard />}
+        <>
+          {hasResults && !hasFilters && (
+            <section className="py-8 md:py-12">
+              <CardSlider
+                title="Featured Companions"
+                subtitle="Scroll, drag, or use arrows to explore"
+                spacing={0.1}
+                showControls={true}
+              >
+                {companions.map((companion) => (
+                  <CompanionCard
+                    key={companion.id}
+                    {...companion}
+                    color={getSubjectColor(companion.subject)}
+                  />
+                ))}
+              </CardSlider>
+            </section>
+          )}
 
-          {companions.map((companion) => (
-            <CompanionCard
-              key={companion.id}
-              {...companion}
-              color={getSubjectColor(companion.subject)}
-            />
-          ))}
-        </section>
+          {hasResults && hasFilters && (
+            <section className="companions-grid px-6 py-8">
+              {companions.map((companion) => (
+                <CompanionCard
+                  key={companion.id}
+                  {...companion}
+                  color={getSubjectColor(companion.subject)}
+                />
+              ))}
+            </section>
+          )}
+        </>
       )}
-
     </main>
   )
 }
