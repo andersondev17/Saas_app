@@ -81,3 +81,7 @@ interface CompanionComponentProps {
   voice: string;
   style: string;
 }
+
+interface NavItemsProps {
+  mobile?: boolean;
+}
