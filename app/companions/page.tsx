@@ -1,11 +1,13 @@
 import CardSlider from "@/components/CardSlider";
 import CompanionCard from "@/components/CompanionCard";
+import { SkeletonCard } from "@/components/feedback/Skeleton";
 import SearchInput from "@/components/SearchInput";
 import SubjectFilter from "@/components/SubjectFilter";
 import { getAllCompanions } from "@/lib/actions/companion.actions";
 import { getSubjectColor } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
+import { Suspense } from "react";
 
 const Companion = async ({ searchParams }: SearchParams) => {
   const filters = await searchParams;
@@ -38,7 +40,15 @@ const Companion = async ({ searchParams }: SearchParams) => {
       )}
 
       {hasResults && (
-        <>
+        <Suspense
+          fallback={
+            <section className="companions-grid px-6 py-8">
+              {Array.from({ length: 4 }).map((_, i) => (
+                <SkeletonCard key={i} />
+              ))}
+            </section>
+          }
+        >
           {hasResults && !hasFilters && (
             <section className="py-8 md:py-12">
               <CardSlider
@@ -69,7 +79,7 @@ const Companion = async ({ searchParams }: SearchParams) => {
               ))}
             </section>
           )}
-        </>
+        </ Suspense>
       )}
     </main>
   )
