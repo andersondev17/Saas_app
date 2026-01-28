@@ -1,5 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
+import { InteractiveHoverButton } from "./ui/interactive-hover-button"
 
 const CTA = () => {
   return (
@@ -9,12 +10,15 @@ const CTA = () => {
       </h2>
       <p>Pick a name, subject, voice  and personality </p>
       <Image src="/images/cta.svg" alt="cta" width={362} height={232} />
-      <button className="btn-primary">
-        <Image src="/icons/plus.svg" alt="plus" width={12} height={12} />
-        <Link href="/companions/new">
-          <p>Build a New Companion</p>
-        </Link>
-      </button>
+      <div className="mt-6 flex items-center gap-4">
+        <InteractiveHoverButton className=" bg-gradient-to-r from-purple-500 via-pink-500 to-orange-400">
+          <Link href="/companions/new" className="relative z-10 flex items-center gap-2">
+            <Image src="/icons/plus.svg" alt="plus" width={16} height={16} />
+            <p>Build a New Companion</p>
+
+          </Link>
+        </InteractiveHoverButton>
+      </div>
     </section>
   )
 }
