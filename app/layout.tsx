@@ -23,7 +23,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${bricolage.variable} antialiased relative min-h-screen w-screen h-screen overflow-y-auto`}>
-        <ClerkProvider appearance={{ variables: { colorPrimary: '#fe5933' } }}>
+        <ClerkProvider
+          appearance={{
+            variables: {
+              colorPrimary: '#b38ccc',
+              colorText: '#0f0f0f',
+              colorBackground: '#ffffff',
+              borderRadius: '1rem',
+            }
+          }}
+        >
           <Navbar />
           <RouteTransition>
             {children}

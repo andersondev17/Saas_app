@@ -3,6 +3,7 @@ import CompanionCard from '@/components/CompanionCard'
 import CompanionsList from '@/components/CompanionsList'
 import CTA from '@/components/CTA'
 import HeroSection from '@/components/HeroSection'
+import { StripedPattern } from '@/components/magicui/striped-pattern'
 import { getAllCompanions, getRecentSessions } from '@/lib/actions/companion.actions'
 import { getSubjectColor } from '@/lib/utils'
 
@@ -30,7 +31,7 @@ const Page = async () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4 pt-4">
             {companion.map((companion) => (
               <CompanionCard
                 key={companion.id}
@@ -52,10 +53,17 @@ const Page = async () => {
         </section>
 
         {/* Panel 3 */}
-        <section className="w-full h-screen flex flex-col justify-center px-6 py-12 bg-gradient-to-br from-neutral-900 to-purple-900">
-          <div className="w-full h-full flex flex-col justify-center items-center px-14 max-sm:px-6">
-            <CTA />
+        <section className="w-full h-screen flex items-center justify-center px-6 py-12 bg-background">
+          <div className="absolute inset-0 z-0 pointer-events-none">
+            <StripedPattern
+              width={40}
+              height={40}
+              direction="left"
+              className="text-primary absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+            />
           </div>
+
+          <CTA />
         </section>
 
       </AnimatedSections>

@@ -116,3 +116,34 @@ export const getUserCompanions = async (userId: string) => {
 
     return data;
 }
+
+/* checks for the users ability to create a new companion based on their subscription plan
+ */
+export const newCompanionPermissions = async () => {
+    const { userId, has } = await auth();
+    const supabase = createSupabaseClient();
+
+    let limit = 0; //default limit for free users
+    if(has({ plan: 'pro '})) { //has acces to pro plan
+        return true;
+    }else if(has({ feature: '3_companion_limit' })){ 
+        limit = 3;
+    }
+    else if(has({ feature: '10_companion_limit' })){ 
+        limit = 10;
+    }
+    const { data, error } = await supabase
+        .from('companions')
+        .select('id', { count: 'exact' }) //count exact number of companions
+        .eq('author', userId);
+        
+    if (error) throw new Error(error.message);
+
+    const companionCount = data.length;
+
+    if(companionCount >= limit){
+        return false; //exceeded limit
+    }else{
+        return true; //within limit
+    }
+}
