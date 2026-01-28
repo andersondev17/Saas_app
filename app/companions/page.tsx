@@ -4,6 +4,8 @@ import SearchInput from "@/components/SearchInput";
 import SubjectFilter from "@/components/SubjectFilter";
 import { getAllCompanions } from "@/lib/actions/companion.actions";
 import { getSubjectColor } from "@/lib/utils";
+import Image from "next/image";
+import Link from "next/link";
 
 const Companion = async ({ searchParams }: SearchParams) => {
   const filters = await searchParams;
@@ -21,6 +23,9 @@ const Companion = async ({ searchParams }: SearchParams) => {
         <div className="flex gap-4">
           <SearchInput />
           <SubjectFilter />
+           <Link href="/companions/new" className="btn-primary">
+                <Image src="/icons/plus.svg" alt="plus" width={32} height={32} />
+            </Link>
         </div>
       </section>
 

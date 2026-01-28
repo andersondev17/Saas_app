@@ -57,7 +57,7 @@ const CompanionsList = ({ title, companions, classNames }: CompanionsListProps) 
                                     <div className="subject-badge w-fit max-md:hidden">
                                         {subject}
                                     </div>
-                                    <div className="flex items-center justify-center rounded-lg w-fit p-2 md:hidden" style={{backgroundColor: getSubjectColor(subject)}}>
+                                    <div className="flex items-center justify-center rounded-lg w-fit p-2 md:hidden" style={{ backgroundColor: getSubjectColor(subject) }}>
                                         <Image
                                             src={`/icons/${subject}.svg`}
                                             alt={subject}
@@ -79,6 +79,12 @@ const CompanionsList = ({ title, companions, classNames }: CompanionsListProps) 
                     </AnimatedList>
                 </TableBody>
             </Table>
+             <button className="btn-primary">
+                <Image src="/icons/plus.svg" alt="plus" width={12} height={12} />
+                <Link href="/companions/new" aria-label="Add companion">
+                    <p>Add Companion </p>
+                </Link>
+            </button>
         </article>
     )
 }
